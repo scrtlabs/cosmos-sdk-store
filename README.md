@@ -12,6 +12,12 @@ cacheStore, err = store.(*iavl.Store).GetImmutable(version)
 ``` 
 fails and we cannot process **multistore** queries because they fail with an error:
 ```
+ERR [*] Cache for error="version does not exist" module=server module store=evidence
+ERR [*] Cache for error="version does not exist" module=server module store=feegrant
+ERR [*] Cache for error="version does not exist" module=server module store=hooks-for-ibc
+ERR [*] Cache for error="version does not exist" module=server module store=feeibc
+ERR [*] Cache for error="version does not exist" module=server module store=authz
+ERR [*] Cache for error="version does not exist" module=server module store=emergencybutton
 
 ```
 We introduced a fix for __CacheMultiStoreWithVersion__ where we bypass errors for certain modules.
